@@ -544,32 +544,48 @@ Now, the value at position 1 is multiplied by 1 while the value at position 2 is
 // print_r(flatten_and_sort([[1, 3, 5], [100], [2, 4, 6]]));// ==> return [1, 2, 3, 4, 5, 6, 100]
 
 // --------------------------------------------------------------------------
-function arr_check(array $a)
+// function arr_check(array $a)
+// {
+//     $f = false;
+//     foreach ($a as $element) {
+//         if (is_array($element)) {
+//             $f = true;
+//         } else {
+//             $f = false;
+//             break;
+//         }
+//     }
+//     return $f;
+// }
+
+
+// print_r(arr_check([[1], [2]])); //=> true
+// echo '<br>';
+// print_r(arr_check(["1", "2"])); //=> false
+// echo '<br>';
+// print_r(arr_check([
+//     new class
+//     {
+//         public $one = 1;
+//     },
+//     new class
+//     {
+//         public $two = 2;
+//     }
+// ])); //=> false
+
+// --------------------------------------------------------------------------
+function avgArray($arr)
 {
-    $f = false;
-    foreach ($a as $element) {
-        if (is_array($element)) {
-            $f = true;
-        } else {
-            $f = false;
-            break;
-        }
-    }
-    return $f;
+    $averages = array_map('array_sum', array_map(null, ...$arr));
+    return array_map(fn ($x) => $x / count($arr), $averages);
 }
 
 
-print_r(arr_check([[1], [2]])); //=> true
-echo '<br>';
-print_r(arr_check(["1", "2"])); //=> false
-echo '<br>';
-print_r(arr_check([
-    new class
-    {
-        public $one = 1;
-    },
-    new class
-    {
-        public $two = 2;
-    }
-]));//=> false
+print_r(avgArray([[1, 2, 3, 4], [5, 6, 7, 8]])); // ==>  [3, 4, 5, 6]
+
+// 1st array: [1, 2, 3, 4]
+// 2nd array: [5, 6, 7, 8]
+//             |  |  |  |
+//             v  v  v  v
+// average:   [3, 4, 5, 6]
