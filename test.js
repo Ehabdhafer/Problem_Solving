@@ -313,3 +313,25 @@ Test.assertEquals(repeats([9, 10, 19, 13, 19, 13]),19);
 Test.assertEquals(repeats([16, 0, 11, 4, 8, 16, 0, 11]),12);
 Test.assertEquals(repeats([5, 17, 18, 11, 13, 18, 11, 13]),22);
 Test.assertEquals(repeats([5, 10, 19, 13, 10, 13]),24);*/
+
+// ----------------------------------------------------------------------------
+// https://www.codewars.com/kata/59b710ed70a3b7dd8f000027/train/javascript
+
+function isAllPossibilities(x) {
+  x.sort((a, b) => a - b);
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] !== i) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isAllPossibilities([1, 2, 0, 3])); //=> True
+// # Includes all numbers between 0 and a.length - 1 (4 - 1 = 3)
+
+console.log(isAllPossibilities([0, 1, 2, 2, 3])); // => False
+// # Doesn't include all numbers between 0 and a.length - 1 (5 - 1 = 4)
+
+console.log(isAllPossibilities([0])); //=> True
+// # Includes all numbers between 0 and a.length - 1 (1 - 1 = 0).
