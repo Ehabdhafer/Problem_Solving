@@ -335,3 +335,38 @@ console.log(isAllPossibilities([0, 1, 2, 2, 3])); // => False
 
 console.log(isAllPossibilities([0])); //=> True
 // # Includes all numbers between 0 and a.length - 1 (1 - 1 = 0).
+
+// ----------------------------------------------------------------------------
+// https://www.codewars.com/kata/5a005f4fba2a14897f000086/train/javascript
+
+function sumItUp(numbersWithBases) {
+  let sum = 0;
+  for (let i = 0; i < numbersWithBases.length; i++) {
+    let number = numbersWithBases[i][0];
+    let base = numbersWithBases[i][1];
+    sum += parseInt(number, base);
+  }
+  return sum;
+}
+
+console.log(
+  sumItUp([
+    ["101", 16],
+    ["7640", 8],
+    ["1", 9],
+  ])
+); // -> 4258
+console.log(
+  sumItUp([
+    ["101", 2],
+    ["10", 8],
+  ])
+); //--> 13
+console.log(
+  sumItUp([
+    ["ABC", 16],
+    ["11", 2],
+  ])
+); //--> 2751
+// You get an array of numbers with their base as an input:
+// The output should be the sum as an integer value with a base of 10, so according to the example this would be:
