@@ -589,3 +589,30 @@ print_r(avgArray([[1, 2, 3, 4], [5, 6, 7, 8]])); // ==>  [3, 4, 5, 6]
 //             |  |  |  |
 //             v  v  v  v
 // average:   [3, 4, 5, 6]
+
+// --------------------------------------------------------------------------
+
+function sortByLength($toSort)
+{
+    $len = [];
+    for ($i = 0; $i < count($toSort); $i++) {
+        $len[$toSort[$i]] = strlen($toSort[$i]);
+    }
+    asort($len);
+    return array_keys($len);
+}
+// another way:
+// function sortByLength(array $toSort): array
+// {
+//     usort($toSort, function($a, $b) {
+//         return strlen($a) - strlen($b);
+//     });
+//     return $toSort;
+// }
+
+// Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+
+print_r(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
+// -> Your function would return the following array: ["Eyes", "Glasses", "Monocles", "Telescopes"];
+echo '<br>';
+print_r(sortByLength(["Beg", "Life", "I", "To"])); // -> ["I", "To", "Beg", "Life"]
