@@ -370,3 +370,31 @@ console.log(
 ); //--> 2751
 // You get an array of numbers with their base as an input:
 // The output should be the sum as an integer value with a base of 10, so according to the example this would be:
+
+// ----------------------------------------------------------------------------
+// https://www.codewars.com/kata/56abc5e63c91630882000057/train/javascript
+
+function nextNumb(val) {
+  let next = val + 1;
+  next += next % 2 === 0 ? 1 : 0;
+  const maxNum = 9999999999;
+  while (next <= maxNum) {
+    if (next % 3 === 0 && hasUniqueDigits(next)) {
+      return next;
+    }
+    next += 2;
+  }
+  return "There is no possible number that fulfills those requirements";
+}
+function hasUniqueDigits(num) {
+  const digits = String(num).split("");
+  return new Set(digits).size === digits.length;
+}
+
+/*Make a function that receives a value, val and outputs the smallest higher number than the given value, 
+and this number belong to a set of positive integers that have the following properties:
+their digits occur only once - they are odd - they are multiple of three*/
+
+console.log(nextNumb(12)); // 15
+console.log(nextNumb(13)); // 15
+console.log(nextNumb(99)); // 105
