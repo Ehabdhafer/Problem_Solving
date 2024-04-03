@@ -303,9 +303,9 @@ function repeats(arr) {
   return sum;
 }
 
-console.log(repeats([9, 10, 19, 13, 19, 13])); //19
-console.log(repeats([5, 10, 19, 13, 10, 13])); //24
-console.log(repeats([16, 0, 11, 4, 8, 16, 0, 11])); //12
+// console.log(repeats([9, 10, 19, 13, 19, 13])); //19
+// console.log(repeats([5, 10, 19, 13, 10, 13])); //24
+// console.log(repeats([16, 0, 11, 4, 8, 16, 0, 11])); //12
 
 /*For example, repeats([4,5,7,5,4,8]) = 15 
 because only the numbers 7 and 8 occur once, and their sum is 15. Every other number occurs twice.
@@ -327,14 +327,14 @@ function isAllPossibilities(x) {
   return true;
 }
 
-console.log(isAllPossibilities([1, 2, 0, 3])); //=> True
-// # Includes all numbers between 0 and a.length - 1 (4 - 1 = 3)
+// console.log(isAllPossibilities([1, 2, 0, 3])); //=> True
+// // # Includes all numbers between 0 and a.length - 1 (4 - 1 = 3)
 
-console.log(isAllPossibilities([0, 1, 2, 2, 3])); // => False
-// # Doesn't include all numbers between 0 and a.length - 1 (5 - 1 = 4)
+// console.log(isAllPossibilities([0, 1, 2, 2, 3])); // => False
+// // # Doesn't include all numbers between 0 and a.length - 1 (5 - 1 = 4)
 
-console.log(isAllPossibilities([0])); //=> True
-// # Includes all numbers between 0 and a.length - 1 (1 - 1 = 0).
+// console.log(isAllPossibilities([0])); //=> True
+// // # Includes all numbers between 0 and a.length - 1 (1 - 1 = 0).
 
 // ----------------------------------------------------------------------------
 // https://www.codewars.com/kata/5a005f4fba2a14897f000086/train/javascript
@@ -349,25 +349,25 @@ function sumItUp(numbersWithBases) {
   return sum;
 }
 
-console.log(
-  sumItUp([
-    ["101", 16],
-    ["7640", 8],
-    ["1", 9],
-  ])
-); // -> 4258
-console.log(
-  sumItUp([
-    ["101", 2],
-    ["10", 8],
-  ])
-); //--> 13
-console.log(
-  sumItUp([
-    ["ABC", 16],
-    ["11", 2],
-  ])
-); //--> 2751
+// console.log(
+//   sumItUp([
+//     ["101", 16],
+//     ["7640", 8],
+//     ["1", 9],
+//   ])
+// ); // -> 4258
+// console.log(
+//   sumItUp([
+//     ["101", 2],
+//     ["10", 8],
+//   ])
+// ); //--> 13
+// console.log(
+//   sumItUp([
+//     ["ABC", 16],
+//     ["11", 2],
+//   ])
+// ); //--> 2751
 // You get an array of numbers with their base as an input:
 // The output should be the sum as an integer value with a base of 10, so according to the example this would be:
 
@@ -395,6 +395,24 @@ function hasUniqueDigits(num) {
 and this number belong to a set of positive integers that have the following properties:
 their digits occur only once - they are odd - they are multiple of three*/
 
-console.log(nextNumb(12)); // 15
-console.log(nextNumb(13)); // 15
-console.log(nextNumb(99)); // 105
+// console.log(nextNumb(12)); // 15
+// console.log(nextNumb(13)); // 15
+// console.log(nextNumb(99)); // 105
+
+// ----------------------------------------------------------------------------
+// https://www.codewars.com/kata/5a431c0de1ce0ec33a00000c/train/javascript
+
+function evenNumbers(array, number) {
+  let f = [];
+  for (i = 0; i < array.length; i++) {
+    if (array[i] % 2 == 0) {
+      f.push(array[i]);
+    }
+  }
+  return f.slice(-number);
+}
+
+/*Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.*/
+// console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)); //=> [4, 6, 8]
+// console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2)); //=> [-8, 26]
+// console.log(evenNumbers([6, -25, 3, 7, 5, 5, 7, -3, 23], 1)); //=> [6]
