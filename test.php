@@ -574,15 +574,15 @@ Now, the value at position 1 is multiplied by 1 while the value at position 2 is
 //     }
 // ])); //=> false
 
-// --------------------------------------------------------------------------
-function avgArray($arr)
-{
-    $averages = array_map('array_sum', array_map(null, ...$arr));
-    return array_map(fn ($x) => $x / count($arr), $averages);
-}
+// // --------------------------------------------------------------------------
+// function avgArray($arr)
+// {
+//     $averages = array_map('array_sum', array_map(null, ...$arr));
+//     return array_map(fn ($x) => $x / count($arr), $averages);
+// }
 
 
-print_r(avgArray([[1, 2, 3, 4], [5, 6, 7, 8]])); // ==>  [3, 4, 5, 6]
+// print_r(avgArray([[1, 2, 3, 4], [5, 6, 7, 8]])); // ==>  [3, 4, 5, 6]
 
 // 1st array: [1, 2, 3, 4]
 // 2nd array: [5, 6, 7, 8]
@@ -592,15 +592,15 @@ print_r(avgArray([[1, 2, 3, 4], [5, 6, 7, 8]])); // ==>  [3, 4, 5, 6]
 
 // --------------------------------------------------------------------------
 
-function sortByLength($toSort)
-{
-    $len = [];
-    for ($i = 0; $i < count($toSort); $i++) {
-        $len[$toSort[$i]] = strlen($toSort[$i]);
-    }
-    asort($len);
-    return array_keys($len);
-}
+// function sortByLength($toSort)
+// {
+//     $len = [];
+//     for ($i = 0; $i < count($toSort); $i++) {
+//         $len[$toSort[$i]] = strlen($toSort[$i]);
+//     }
+//     asort($len);
+//     return array_keys($len);
+// }
 // another way:
 // function sortByLength(array $toSort): array
 // {
@@ -612,7 +612,21 @@ function sortByLength($toSort)
 
 // Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
 
-print_r(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
-// -> Your function would return the following array: ["Eyes", "Glasses", "Monocles", "Telescopes"];
-echo '<br>';
-print_r(sortByLength(["Beg", "Life", "I", "To"])); // -> ["I", "To", "Beg", "Life"]
+// print_r(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
+// // -> Your function would return the following array: ["Eyes", "Glasses", "Monocles", "Telescopes"];
+// echo '<br>';
+// print_r(sortByLength(["Beg", "Life", "I", "To"])); // -> ["I", "To", "Beg", "Life"]
+
+
+// // --------------------------------------------------------------------------
+
+// function multiply_all($array)
+// {
+//     return function ($multiplier) use ($array) {
+//         return array_map(fn ($value) => $value * $multiplier, $array);
+//     };
+// }
+
+// print_r(multiply_all(
+//     [1, 2, 3]
+// )(2));  // => [2, 4, 6]
