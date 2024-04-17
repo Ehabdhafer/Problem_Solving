@@ -416,3 +416,27 @@ function evenNumbers(array, number) {
 // console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)); //=> [4, 6, 8]
 // console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2)); //=> [-8, 26]
 // console.log(evenNumbers([6, -25, 3, 7, 5, 5, 7, -3, 23], 1)); //=> [6]
+
+// ----------------------------------------------------------------------------
+// https://www.codewars.com/kata/51b62bf6a9c58071c600001b/train/javascript
+// convert the number to a roman numeral
+
+function solution(number) {
+  let y = {
+    M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90,
+    L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1,
+  };
+  let str = "";
+  for (var i of Object.keys(y)) {
+    var q = Math.floor(number / y[i]);
+    number -= q * y[i];
+    str += i.repeat(q);
+  }
+  return str;
+}
+
+console.log(solution(500));
+console.log(solution(1990));
+console.log(solution(2008));
+console.log(solution(1666));
+
