@@ -423,8 +423,19 @@ function evenNumbers(array, number) {
 
 function solution(number) {
   let y = {
-    M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90,
-    L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1,
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
   };
   let str = "";
   for (var i of Object.keys(y)) {
@@ -435,8 +446,40 @@ function solution(number) {
   return str;
 }
 
-console.log(solution(500));
-console.log(solution(1990));
-console.log(solution(2008));
-console.log(solution(1666));
+// console.log(solution(500));
+// console.log(solution(1990));
+// console.log(solution(2008));
+// console.log(solution(1666));
 
+// ----------------------------------------------------------------------------
+// https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/javascript
+// In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G"
+
+function dnaStrand(dna) {
+  let f = dna.split("");
+  let arr = [];
+  for (i = 0; i < f.length; i++) {
+    switch (f[i]) {
+      case "A":
+        arr.push("T");
+        break;
+      case "T":
+        arr.push("A");
+        break;
+      case "C":
+        arr.push("G");
+        break;
+      case "G":
+        arr.push("C");
+        break;
+      default:
+        return "not defined";
+        break;
+    }
+  }
+  return arr.join("");
+}
+
+console.log(dnaStrand("AAAA")); // => TTTT
+console.log(dnaStrand("ATTGC")); // => TAACG
+console.log(dnaStrand("GTAT")); // => CATA
