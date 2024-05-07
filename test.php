@@ -656,3 +656,26 @@ Now, the value at position 1 is multiplied by 1 while the value at position 2 is
 // print_r(duplicate_encode("Success")); // =>  ")())())" 
 // echo '<br>';
 // print_r(duplicate_encode("(( @")); // =>  "))((" 
+
+// --------------------------------------------------------------------------
+
+function findShort($str)
+{
+    $f = explode(" ", $str);
+    $short = null;
+    foreach ($f as $w) {
+        if (strlen($w) < $short || $short == null) {
+            $short = strlen($w);
+        }
+    }
+    return $short;
+}
+
+// Simple, given a string of words, return the length of the shortest word(s).
+// String will never be empty and you do not need to account for different data types.
+
+print_r(findShort("bitcoin take over the world maybe who knows perhaps")); // => 3
+echo '<br>';
+print_r(findShort("turns out random test cases are easier than writing out basic ones")); // => 3
+echo '<br>';
+print_r(findShort("Let's travel abroad shall we")); // => 2
