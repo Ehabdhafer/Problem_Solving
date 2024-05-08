@@ -480,6 +480,15 @@ function dnaStrand(dna) {
   return arr.join("");
 }
 
-console.log(dnaStrand("AAAA")); // => TTTT
-console.log(dnaStrand("ATTGC")); // => TAACG
-console.log(dnaStrand("GTAT")); // => CATA
+// console.log(dnaStrand("AAAA")); // => TTTT
+// console.log(dnaStrand("ATTGC")); // => TAACG
+// console.log(dnaStrand("GTAT")); // => CATA
+
+// ----------------------------------------------------------------------------
+// https://www.codewars.com/kata/57f59da8d3978bb31f000152/train/javascript
+// Make me slow! Calling makeMeSlow() should take at least 7 seconds.
+
+function makeMeSlow() {
+  const start = Date.now();
+  while (Date.now() - start < 7000) {}
+}
