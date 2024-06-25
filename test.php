@@ -659,23 +659,50 @@ Now, the value at position 1 is multiplied by 1 while the value at position 2 is
 
 // --------------------------------------------------------------------------
 
-function findShort($str)
+// function findShort($str)
+// {
+//     $f = explode(" ", $str);
+//     $short = null;
+//     foreach ($f as $w) {
+//         if (strlen($w) < $short || $short == null) {
+//             $short = strlen($w);
+//         }
+//     }
+//     return $short;
+// }
+
+// // Simple, given a string of words, return the length of the shortest word(s).
+// // String will never be empty and you do not need to account for different data types.
+
+// print_r(findShort("bitcoin take over the world maybe who knows perhaps")); // => 3
+// echo '<br>';
+// print_r(findShort("turns out random test cases are easier than writing out basic ones")); // => 3
+// echo '<br>';
+// print_r(findShort("Let's travel abroad shall we")); // => 2
+
+
+// --------------------------------------------------------------------------
+function dashatize(int $num): string
 {
-    $f = explode(" ", $str);
-    $short = null;
-    foreach ($f as $w) {
-        if (strlen($w) < $short || $short == null) {
-            $short = strlen($w);
+    $numStr = strval($num);
+    $result = "";
+    for ($i = 0; $i < strlen($numStr); $i++) {
+        $digit = $numStr[$i];
+        if (is_numeric($digit) && $digit % 2 != 0) {
+            $result .= "-" . $digit . "-";
+        } else {
+            $result .= $digit;
         }
     }
-    return $short;
+    $result = preg_replace('/--+/', '-', $result);
+    $result = trim($result, '-');
+    return $result;
 }
-
-// Simple, given a string of words, return the length of the shortest word(s).
-// String will never be empty and you do not need to account for different data types.
-
-print_r(findShort("bitcoin take over the world maybe who knows perhaps")); // => 3
+// Given an integer, return a string with dash '-' marks before and after each odd digit, but do not begin or end the string with a dash mark.
+print_r(dashatize(274)); // -> '2-7-4'
 echo '<br>';
-print_r(findShort("turns out random test cases are easier than writing out basic ones")); // => 3
+print_r(dashatize(6815)); // -> '68-1-5'
 echo '<br>';
-print_r(findShort("Let's travel abroad shall we")); // => 2
+print_r(dashatize(3116)); // -> '5-3-1-1'
+echo '<br>';
+print_r(dashatize(974302)); // -> '9-7-4-3-02'
