@@ -492,3 +492,24 @@ function makeMeSlow() {
   const start = Date.now();
   while (Date.now() - start < 7000) {}
 }
+
+// ----------------------------------------------------------------------------
+// https://www.codewars.com/kata/56a1c074f87bc2201200002e/train/javascript
+
+function smaller(nums) {
+  let fin = [];
+  for (i = 0; i < nums.length; i++) {
+    let count = 0;
+    for (j = i + 1; j < nums.length; j++) {
+      if (nums[j] < nums[i]) {
+        count += 1;
+      }
+    }
+    fin.push(count);
+  }
+  return fin;
+}
+
+// console.log(smaller([5, 4, 3, 2, 1])); //=> Output [4, 3, 2, 1, 0]
+// console.log(smaller([1, 2, 0])); //=> Output [1, 1, 0]
+// console.log(smaller([5, 4, 7, 9, 2, 4, 4, 5, 6])); //=> Output  [4, 1, 5, 5, 0, 0, 0, 0, 0]
